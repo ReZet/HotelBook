@@ -38032,7 +38032,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text" },
+              attrs: { type: "text", required: "" },
               domProps: { value: _vm.first_name },
               on: {
                 input: function($event) {
@@ -38058,7 +38058,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text" },
+              attrs: { type: "text", required: "" },
               domProps: { value: _vm.last_name },
               on: {
                 input: function($event) {
@@ -38084,7 +38084,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text" },
+              attrs: { type: "text", required: "" },
               domProps: { value: _vm.phone_number },
               on: {
                 input: function($event) {
@@ -38110,7 +38110,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "text" },
+              attrs: { type: "email", required: "" },
               domProps: { value: _vm.email },
               on: {
                 input: function($event) {
@@ -38136,7 +38136,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "date" },
+              attrs: { type: "date", required: "" },
               domProps: { value: _vm.check_in },
               on: {
                 input: function($event) {
@@ -38162,7 +38162,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "date" },
+              attrs: { type: "date", required: "" },
               domProps: { value: _vm.checkout },
               on: {
                 input: function($event) {

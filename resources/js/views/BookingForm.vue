@@ -4,27 +4,27 @@
 		<div>
 			<div class="form-group">
 				<label>First Name:</label>
-				<input type='text' v-model='first_name' class="form-control"  />
+				<input type='text' v-model='first_name' class="form-control" required />
 			</div>
 			<div class="form-group">
 				<label>Last Name:</label>
-				<input type='text' v-model='last_name' class="form-control"  />
+				<input type='text' v-model='last_name' class="form-control" required />
 			</div>
 			<div class="form-group">
 				<label>Phone Number:</label>
-				<input type='text' v-model='phone_number' class="form-control"  />
+				<input type='text' v-model='phone_number' class="form-control" required  />
 			</div>
 			<div class="form-group">
 				<label>Email:</label>
-				<input type='text' v-model='email' class="form-control"  />
+				<input type='email' v-model='email' class="form-control" required />
 			</div>
 			<div class="form-group">
 				<label>Check In:</label>
-				<input type='date' v-model='check_in' class="form-control"  />
+				<input type='date' v-model='check_in' class="form-control" required />
 			</div>
 			<div class="form-group">
 				<label>Checkout:</label>
-				<input type='date' v-model='checkout' class="form-control" />
+				<input type='date' v-model='checkout' class="form-control" required />
 			</div>
 			<input type='hidden' v-model='hotel_id' />
 			<div class="form-group">
