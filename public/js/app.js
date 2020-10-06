@@ -2162,7 +2162,7 @@ __webpack_require__.r(__webpack_exports__);
     app.hotelId = id;
     console.log(app);
     axios.get('/api/v1/hotels/' + id).then(function (resp) {
-      app.hotel = resp.data;
+      app.hotel = resp.data.data;
     })["catch"](function (resp) {
       console.log(resp);
       alert("Could not load hotels");
@@ -2211,7 +2211,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var app = this;
     axios.get('/api/v1/hotels').then(function (resp) {
-      app.hotels = resp.data;
+      app.hotels = resp.data.data;
     })["catch"](function (resp) {
       console.log(resp);
       alert("Could not load hotels");
@@ -38310,7 +38310,7 @@ var render = function() {
           attrs: { src: _vm.hotel.image }
         }),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.hotel.location))]),
+        _c("p", [_vm._v(_vm._s(_vm.hotel.location.name))]),
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.hotel.description))])
       ]),
@@ -38400,7 +38400,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "card-text" }, [
-                    _vm._v(_vm._s(hotel.location))
+                    _vm._v(_vm._s(hotel.location.name))
                   ]),
                   _vm._v(" "),
                   _c(
@@ -53711,7 +53711,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Booking__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Booking */ "./resources/js/views/Booking.vue");
 /* harmony import */ var _views_BookingForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/BookingForm */ "./resources/js/views/BookingForm.vue");
 /* harmony import */ var _views_BookingSuccess__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/BookingSuccess */ "./resources/js/views/BookingSuccess.vue");
-/* harmony import */ var _views_BookingError__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/BookingError */ "./resources/js/views/BookingError.vue");
+/* harmony import */ var _views_BookingError__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/BookingError */ "./resources/js/views/BookingError.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -53732,7 +53732,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('hotel', _views_Hotel__WEBP
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('booking', _views_Booking__WEBPACK_IMPORTED_MODULE_8__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('bookingForm', _views_BookingForm__WEBPACK_IMPORTED_MODULE_9__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('bookingSuccess', _views_BookingSuccess__WEBPACK_IMPORTED_MODULE_10__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('BookingError', _views_BookingError__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('BookingError', _views_BookingError__WEBPACK_IMPORTED_MODULE_11__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{

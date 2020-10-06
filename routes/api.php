@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Location;
+
 //use App\Http\Controllers\Api\V1\HotelController;
 
 
@@ -24,4 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => '/v1', 'namespace' => 'App\Http\Controllers\Api\V1', 'as' => 'api.'], function () {
 	Route::resource('hotels', 'HotelController', ['except' => ['create', 'edit']]);
 	Route::resource('bookings', 'BookingController', ['except' => ['create', 'edit']]);
+	Route::get('locations', function () {
+		return Location::all();
+	});
 });

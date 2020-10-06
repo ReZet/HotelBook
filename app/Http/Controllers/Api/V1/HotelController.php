@@ -1,13 +1,21 @@
 <?php
-
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Hotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Repositories\HotelRepositoryInterface;
+use App\Http\Resources\Hotel as HotelResource;
+use App\Http\Resources\HotelCollection;
+
 
 class HotelController extends Controller
 {
+	protected $hotelRepo;
+
+    public function __construct (HotelRepositoryInterface $hotelRepo) {
+		$this->hotelRepo = $hotelRepo;
+    }
+	
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        return Hotel::all();
+		//return HotelResource::collection($this->hotelRepo->all());
+        return new HotelCollection($this->hotelRepo->all());
     }
 
     /**
@@ -26,7 +35,7 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        $hotel = Hotel::create($request->all());
+        $this->hotelRepo->create($request->all());
         return $hotel;
     }
 
@@ -38,7 +47,8 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        return Hotel::findOrFail($id);
+        //return $this->hotelRepo->find($id);
+        return new HotelResource($this->hotelRepo->find($id));
     }
 
     /**
@@ -50,8 +60,10 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $hotel = Hotel::findOrFail($id);
-        $hotel->update($request->all());
+		$hotel = $this->hotelRepo->update($id, $request->all());
+		if ($hotel) {
+			$this->hotelRepo->find($id);
+		}
  
         return $hotel;
     }

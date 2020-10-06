@@ -17,7 +17,7 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->timestamps();
 			$table->string('name', 256);
-			$table->integer('parent_id')->unsigned()->nullable();
+			$table->foreignId('location_id')->nullable()->constrained()->onDelete('set null');
         });
     }
 

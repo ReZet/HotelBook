@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col">
 				<img :src="hotel.image" class="img-thumbnail">
-				<p>{{ hotel.location }}</p>
+				<p>{{ hotel.location.name }}</p>
 				<p>{{ hotel.description }}</p>
 			</div>
 			<div class="col">
@@ -36,7 +36,7 @@
 			
             axios.get('/api/v1/hotels/' + id)
                 .then(function (resp) {
-                    app.hotel = resp.data;
+                    app.hotel = resp.data.data;
                 })
                 .catch(function (resp) {
                     console.log(resp);

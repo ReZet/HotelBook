@@ -9,7 +9,15 @@ class Hotel extends Model
 {
     use HasFactory;
 	
-	protected $fillable = ['name', 'location', 'image', 'description'];
+	protected $fillable = ['name', 'location_id', 'image', 'description'];
+	
+	protected $with = ['location'];
+
+	
+	public function location()
+    {
+        return $this->belongsTo('App\Models\Location')->with('parent');
+    }
 	
 	public function bookings()
     {
